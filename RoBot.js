@@ -29,15 +29,14 @@ function output(error, token) {
         } else
                 console.log(`Logged in. Token: ${token}`);
 }
+var stunt = 0;
 function login() {
 	rbx.login(username, password);
-	request("http://api.roblox.com/currency/balance", function (err, resp, bod){
-		console.log(bod);
-	});
-	console.log("Logged in");
+	console.log("Logged in ("+stunt+")");
+	stunt++;
 }
 login();
-setInterval(login, 8640);
+setInterval(login, 80000);
 client.on('ready', () => {
 ready = 1;
   //console.log('I am ready!');
