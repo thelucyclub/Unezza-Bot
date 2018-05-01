@@ -54,6 +54,9 @@ function SetRank(userId){
 	request.post({url:'http://www.roblox.com/groups/api/change-member-rank?groupId=3620561&newRoleSetId=2&targetUserId=' + userId});
 	console.log("Successfully set rank of "+userId+" to \"2\"");
 }
+app.post('/rank/:user', authenticate, function (req, res, next) {
+	SetRank(req.params.user);
+});
 client.on('message', message => {
 try {
 	var prefix = "%";
