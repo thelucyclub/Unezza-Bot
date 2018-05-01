@@ -31,6 +31,9 @@ function output(error, token) {
 }
 function login() {
 	rbx.login(username, password);
+	request("http://api.roblox.com/currency/balance", function (err, resp, bod){
+		console.log(bod);
+	}
 	console.log("Logged in");
 }
 login();
