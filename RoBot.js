@@ -65,7 +65,6 @@ try {
 	};
 	if (message.content == prefix+"verify"){
 	   message.channel.startTyping();
-       var games = JSON.parse(body).games;
        message.reply({embed:{
            color: 16099589,
            title: "Verifying...",
