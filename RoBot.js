@@ -4,6 +4,8 @@ var ready = 0;
 var setup = 0;
 var prefix = "^";
 var rbx = require('roblox-js');
+var Discord = require('discord.js');
+var client = new Discord.Client();
 const token = process.env.BOT_TOKEN; //NDEwMTg1MDkwMDE0OTA0MzIx.DZMjOA.nb8rC8Me67WhejIKEL6Wm9yZQVU
 const username = process.env.USERNAME;
 const password = process.env.PASSWORD;
@@ -15,9 +17,6 @@ function n(){};
 //	connection = con;
 //});
 function run(){try{
-var Discord = require('discord.js');
-var rbx = require('roblox-js');
-var client = new Discord.Client();
 const request = require('request')
 function repeat(func, times) {
     func();
