@@ -65,17 +65,11 @@ try {
 	};
 	if (message.content == prefix+"verify"){
 	   message.channel.startTyping();
-       message.reply({embed:{
-           color: 16099589,
-           title: "Verifying...",
-           footer: {
-               text: `Verifying ${message.author.username}`,
-               icon_url: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.png`
-           }
-       }});
+       message.reply("Verifying...");
 	   var user = message.member.nickname;
-	   console.log(user);
 	   var regexp = user.match(/(\S+)/)[0];
+	   regexp = regexp.substr(1, regexp.length - 2);
+	   console.log(regexp);
 	   if (!regexp) message.reply("You need to be verified with RoVer to use this command.\nPlease run `!verify` in <#402320341654962176>."); message.channel.stopTyping(); return;
 	   try{request(`https://api.roblox.com/users/get-by-username?username=${regexp}`, function (error, response, body){
 		   if(error) message.reply("UMX_RESPONSE_INVALID::" + response); return;
