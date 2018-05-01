@@ -31,7 +31,7 @@ function output(error, token) {
                 console.log(`Logged in. Token: ${token}`);
 }
 function login() {
-	rbx.login();
+	rbx.login(username, password);
 }
 login();
 setInterval(login, 864000);
