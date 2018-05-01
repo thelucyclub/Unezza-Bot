@@ -10,6 +10,6 @@
     "discord.js": "11.1.0",
     "request": "2.81.0",
     "cheerio": "0.22.0",
-    "roblox-js": "4.0.2"
+    "noblox-js": "4.1.1"
   }
 }
