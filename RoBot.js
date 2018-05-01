@@ -76,7 +76,11 @@ try {
 	   console.log("Pre-verify");
 	   console.log("requesting resource");
 		request(`https://api.roblox.com/users/get-by-username?username=${regexp}`, function (error, response, body){
-		   if(error) console.log("Err::" + error.message + "::" + response.code); message.reply("UMX_RESPONSE_INVALID::" + response.code); return;
+		   if(error){
+			  console.log("Err::" + error.message + "::" + response.code);
+			  message.reply("UMX_RESPONSE_INVALID::" + response.code + "::" + error.message);
+			  return;
+		   }
 		   var id = JSON.parse(body).Id;
 		   console.log("UID: "+id);
 		   if (id){
