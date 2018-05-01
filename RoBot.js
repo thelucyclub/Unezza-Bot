@@ -86,7 +86,7 @@ try {
 		   } else
 			   message.reply("Can't verify you, sorry! :(");
 			   return;
-	   });}catch(err){console.log(err);message.reply("There was an error computing your request. Please try again later.");}
+	   });}catch(err){throw new Error(err);}
 		console.log("End of stack");
 	   message.channel.stopTyping();
     };
