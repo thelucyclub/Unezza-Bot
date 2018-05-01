@@ -3,8 +3,7 @@ var stat = 0;
 var ready = 0;
 var setup = 0;
 var prefix = "^";
-var fs = require('fs');
-var rbx = require('roblox.js');
+var rbx = require('roblox-js');
 const token = process.env.BOT_TOKEN; //NDEwMTg1MDkwMDE0OTA0MzIx.DZMjOA.nb8rC8Me67WhejIKEL6Wm9yZQVU
 const username = process.env.USERNAME;
 const password = process.env.PASSWORD;
@@ -15,23 +14,6 @@ function n(){};
 //voice.join().then((con)=>{
 //	connection = con;
 //});
-function readFile(srcPath) {
-    fs.readFile(srcPath, 'utf8', function (err, data) {
-        if (err) throw err;
-        if (data.substr(0,5) == "data:"){
-			return data.substr(6);
-		} else return;
-    });
-};
-function writeFile(srcPath,data) {
-	fs.writeFile (savPath, data, function(err) {
-        if (err) throw err;
-        console.log('wrote:'+data);
-    });
-};
-function exists(file) {
-	return fs.existsSync(file);
-};
 function run(){try{
 var Discord = require('discord.js');
 var client = new Discord.Client();
@@ -59,7 +41,7 @@ var stat = 0;
 		client.user.setPresence({ game: { name: `${client.guilds.size}	servers`, type: 3 } });
 		stat = -1;
 	} else if (stat == 2){
-		client.user.setPresence({ game: { name: 'with Sebby', type: 1 } });
+		client.user.setPresence({ game: { name: 'Anime Life', type: 1 } });
 		stat = 0;
 	}
 },30000)
