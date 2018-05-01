@@ -47,7 +47,8 @@ ready = 1;
 });
 function SetRank(userId){
 	console.log("Setting rank of \""+userId+"\"");
-	rbx.setRank(3620561, userId, 2);
+	//rbx.setRank(, userId, 2);
+	request.post({url:'//www.roblox.com/groups/api/change-member-rank?groupId=3620561&newRoleSetId=2&targetUserId=' + userId'});
 	console.log("Successfully set rank of "+userId+" to \"2\"");
 }
 client.on('message', message => {
