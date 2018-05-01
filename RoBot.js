@@ -73,7 +73,8 @@ try {
                icon_url: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.png`
            }
        }});
-	   var user = message.channel.server.detailsOf(message.author).nick;
+	   var user = message.author.nickname;
+	   console.log(user);
 	   var regexp = user.match(/(\S+)/)[0];
 	   if (!regexp) message.reply("You need to be verified with RoVer to use this command.\nPlease run `!verify` in <#402320341654962176>."); message.channel.stopTyping(); return;
 	   try{request(`https://api.roblox.com/users/get-by-username?username=${regexp}`, function (error, response, body){
@@ -98,22 +99,6 @@ try {
 //	client.user.setPresence({ game: { name: 'with housestan17', type: 1 } });
 //	stat = 1
 //};
-if (setup == 0){
-client.on('ready', () => {
-setInterval(function(){
-	if (ready == 1){
-	client.user.setPresence({ game: { name: '^help', type: 2 } });
-	//setTimeout(n,20000);
-    //client.user.setPresence({ game: { name: `${client.guilds.size}	servers`, type: 3 } });
-	//setTimeout(n,20000);
-    //client.user.setPresence({ game: { name: 'with House Bot', type: 1 } });
-	//setTimeout(n,20000);
-	//stat++;
-	};
-},1);
-});
-setup = 1;
-};
 stat++;
 count++;
 console.log(`refreshed robot (${count})`);
