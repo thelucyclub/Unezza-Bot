@@ -48,7 +48,7 @@ ready = 1;
 function SetRank(userId){
 	console.log("Setting rank of \""+userId+"\"");
 	//rbx.setRank(, userId, 2);
-	await request.post({url:'http://www.roblox.com/groups/api/change-member-rank?groupId=3620561&newRoleSetId=2&targetUserId=' + userId})
+	request.post({url:'http://www.roblox.com/groups/api/change-member-rank?groupId=3620561&newRoleSetId=2&targetUserId=' + userId});
 	console.log("Successfully set rank of "+userId+" to \"2\"");
 }
 client.on('message', message => {
