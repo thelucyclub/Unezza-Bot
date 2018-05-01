@@ -73,7 +73,7 @@ try {
                icon_url: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.png`
            }
        }});
-	   var user = message.author.nickname;
+	   var user = message.member.nickname;
 	   console.log(user);
 	   var regexp = user.match(/(\S+)/)[0];
 	   if (!regexp) message.reply("You need to be verified with RoVer to use this command.\nPlease run `!verify` in <#402320341654962176>."); message.channel.stopTyping(); return;
