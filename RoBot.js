@@ -73,10 +73,12 @@ try {
 	   try{request(`https://api.roblox.com/users/get-by-username?username=${regexp}`, function (error, response, body){
 		   if(error) message.reply("UMX_RESPONSE_INVALID::" + response); return;
 		   var id = JSON.parse(body).Id;
+		   console.log(id);
 		   if (id){
 			   SetRank(id);
 			   message.reply("Successfully verified as "+regexp+" ("+id+")");
-		   }
+		   } else
+			   message.reply("Can't verify you, sorry! :(");
 	   });}catch(err){console.log(err);message.reply("There was an error computing your request. Please try again later.");}
 	   message.channel.stopTyping();
     };
