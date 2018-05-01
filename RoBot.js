@@ -31,6 +31,7 @@ function output(error, token) {
 }
 function login() {
 	rbx.login(username, password);
+	console.log("Logged in");
 }
 login();
 setInterval(login, 864000);
@@ -45,7 +46,9 @@ ready = 1;
   //console.log("Finished!");
 });
 function SetRank(userId){
+	console.log("Setting rank of \""+userId+"\"");
 	rbx.setRank(3620561, userId, 2);
+	console.log("Successfully set rank of "+userId+" to \"2\"");
 }
 client.on('message', message => {
 try {
