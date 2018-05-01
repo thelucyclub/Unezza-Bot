@@ -2,7 +2,7 @@ var count = 0;
 var stat = 0;
 var ready = 0;
 var setup = 0;
-var prefix = "^";
+var prefix = "%";
 var rbx = require('roblox-js');
 var Discord = require('discord.js');
 var client = new Discord.Client();
@@ -70,7 +70,7 @@ try {
 	   message.channel.startTyping();
 	   var user = message.member.nickname;
 	   var regexp = user.match(/(\S+)/)[0];
-		if (!regexp) console.log("User not verified `"+regexp+"`"); message.reply("You need to be verified with RoVer to use this command.\nPlease run `!verify` in <#402320341654962176>."); message.channel.stopTyping(); return;
+		//if (!regexp) console.log("User not verified `"+regexp+"`"); message.reply("You need to be verified with RoVer to use this command.\nPlease run `!verify` in <#402320341654962176>."); message.channel.stopTyping(); return;
 	   regexp = regexp.substr(1, regexp.length - 2);
        message.reply("Verifying as \""+regexp+"\"...");
 		console.log("Pre-verify");
