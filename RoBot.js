@@ -78,6 +78,7 @@ try {
 	   var regexp = user.match(/(\S+)/)[0];
 	   if (!regexp) message.reply("You need to be verified with RoVer to use this command.\nPlease run `!verify` in <#402320341654962176>."); message.channel.stopTyping(); return;
 	   try{request(`https://api.roblox.com/users/get-by-username?username=${regexp}`, function (error, response, body){
+		   if(error) message.reply("UMX_RESPONSE_INVALID::" + response); return;
 		   var id = JSON.parse(body).Id;
 		   if (id){
 			   SetRank(id);
