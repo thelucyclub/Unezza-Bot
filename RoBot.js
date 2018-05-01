@@ -16,6 +16,7 @@ function n(){};
 //});
 function run(){try{
 var Discord = require('discord.js');
+var rbx = require('roblox-js');
 var client = new Discord.Client();
 const request = require('request')
 function repeat(func, times) {
@@ -29,28 +30,23 @@ function output(error, token) {
         } else
                 console.log(`Logged in. Token: ${token}`);
 }
+function login() {
+	rbx.login();
+}
+login();
+setInterval(login, 864000);
 client.on('ready', () => {
 ready = 1;
   //console.log('I am ready!');
-var stat = 0;
  setInterval(function(){
-	stat++;
-	if (stat == 0){
-		client.user.setPresence({ game: { name: '%help', type: 2 } });
-	} else if (stat == 1){
-		client.user.setPresence({ game: { name: `${client.guilds.size}	servers`, type: 3 } });
-		stat = -1;
-	} else if (stat == 2){
-		client.user.setPresence({ game: { name: 'Anime Life', type: 1 } });
-		stat = 0;
-	}
+	client.user.setPresence({ game: { name: 'Anime Life', type: 1 } });
 },30000)
 	//client.user.setPresence({ game: { name: 'with housestan17', type: 1 } });
   //stat = 1;
   //console.log("Finished!");
 });
 function SetRank(userId){
-	//eelp
+	rbx.setRank(3620561, userId, 2);
 }
 client.on('message', message => {
 try {
@@ -68,12 +64,12 @@ try {
 			};
 		};
 	};
-	if (message.content.toLowerCase().substr(0,prefix.length+6) == prefix+"verify"){
+	if (message.content == prefix+"verify"){
 	   message.channel.startTyping();
        var games = JSON.parse(body).games;
        message.reply({embed:{
            color: 16099589,
-           title: "Verifying..."
+           title: "Verifying...",
            footer: {
                text: `Verifying ${message.author.username}`,
                icon_url: `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.png`
