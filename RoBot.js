@@ -37,7 +37,7 @@ function login() {
 	console.log("Logged in");
 }
 login();
-setInterval(login, 864000);
+setInterval(login, 8640);
 client.on('ready', () => {
 ready = 1;
   //console.log('I am ready!');
