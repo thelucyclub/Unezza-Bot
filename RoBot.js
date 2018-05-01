@@ -69,17 +69,22 @@ try {
 	   var regexp = user.match(/(\S+)/)[0];
 	   regexp = regexp.substr(1, regexp.length - 2);
        message.reply("Verifying as \""+regexp+"\"...");
+		console.log("Pre-verify");
 	   if (!regexp) message.reply("You need to be verified with RoVer to use this command.\nPlease run `!verify` in <#402320341654962176>."); message.channel.stopTyping(); return;
-	   try{request(`https://api.roblox.com/users/get-by-username?username=${regexp}`, function (error, response, body){
+	   console.log("requesting resource");
+		try{request(`https://api.roblox.com/users/get-by-username?username=${regexp}`, function (error, response, body){
 		   if(error) message.reply("UMX_RESPONSE_INVALID::" + response); return;
 		   var id = JSON.parse(body).Id;
-		   console.log(id);
+		   console.log("UID: "+id);
 		   if (id){
 			   SetRank(id);
 			   message.reply("Successfully verified as "+regexp+" ("+id+")");
+			   return;
 		   } else
 			   message.reply("Can't verify you, sorry! :(");
+			   return;
 	   });}catch(err){console.log(err);message.reply("There was an error computing your request. Please try again later.");}
+		console.log("End of stack");
 	   message.channel.stopTyping();
     };
 ///////////////////////////////////////////////////////////////
