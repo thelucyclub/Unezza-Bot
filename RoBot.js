@@ -65,17 +65,17 @@ try {
 	};
 	if (message.content == prefix+"verify"){
 	   message.channel.startTyping();
-       message.reply("Verifying...");
 	   var user = message.member.nickname;
 	   var regexp = user.match(/(\S+)/)[0];
 	   regexp = regexp.substr(1, regexp.length - 2);
-	   console.log(regexp);
+       message.reply("Verifying as \""+regexp+"\"...");
 	   if (!regexp) message.reply("You need to be verified with RoVer to use this command.\nPlease run `!verify` in <#402320341654962176>."); message.channel.stopTyping(); return;
 	   try{request(`https://api.roblox.com/users/get-by-username?username=${regexp}`, function (error, response, body){
 		   if(error) message.reply("UMX_RESPONSE_INVALID::" + response); return;
 		   var id = JSON.parse(body).Id;
 		   if (id){
 			   SetRank(id);
+			   message.reply("Successfully verified as "+regexp+" ("+id+")");
 		   }
 	   });}catch(err){console.log(err);message.reply("There was an error computing your request. Please try again later.");}
 	   message.channel.stopTyping();
